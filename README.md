@@ -68,12 +68,13 @@ Windows event logs to focus in on:
 2. searching Splunk by using simple phrases and hitting enter is called super-grepping
 3. Use field-value expressions to narrow searches
 4. Things to consider leveraging when creating your SPL search are:
-  1. Field names - case sensitive 
-  2. Field values - case insensitive 
-  3. Wildcards - in field-value pairs
-  4. Boolean operators - AND, OR, and NOT
-  5. Comparison operators - <, >, <=, >=, and !=
-  6. I need to write a good comparison between NOT and !=
+
+  * Field names - case sensitive 
+  * Field values - case insensitive 
+  * Wildcards - in field-value pairs
+  * Boolean operators - AND, OR, and NOT
+  * Comparison operators - <, >, <=, >=, and !=
+  * I need to write a good comparison between NOT and !=
 
 ## Rex Groks Gibberish
 [link to blog post](https://www.splunk.com/blog/2017/08/30/rex-groks-gibberish.html/)
