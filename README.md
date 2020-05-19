@@ -1,7 +1,7 @@
 ![alt text](team-logo.png)
 
 ___
-Greetings! This playbook contains a synopsis of the scenarious and functionality from the Hunting with Splunk blog post series, as well as the Security Investigation Online Experience labs. Resources in this playbook can potentially be matched with challenges presented during the event, helping to expedite solutions and propel our team towards victory! :rocket: 
+Greetings! This playbook contains a synopsis of the scenarios and functionality from the Hunting with Splunk blog post series, as well as the Security Investigation Online Experience labs. Resources in this playbook can potentially be matched with challenges presented during the event, helping to expedite solutions and propel our team towards victory! :rocket: 
 ___
 
 ## Contents
@@ -170,3 +170,4 @@ Exercise 3 - Scoping
 * Web Proxy Command Control Activity Analysis
 * Looking at data on a firewall, web proxy, or NetFlow contains records between all users and hosts. One example is leveraging web proxy traffic can help identify malicious activities on the network in addition to identifying Command and Control activities. 
 
+- [Back to top of page](#Contents)
