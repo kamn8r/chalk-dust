@@ -1,7 +1,7 @@
 ![alt text](team-logo.png)
 
 ___
-Greetings! This playbook contains a synopsis of the scenarios and functionality from the Hunting with Splunk blog post series, as well as the Security Investigation Online Experience labs. Resources in this playbook can potentially be matched with challenges presented during the event, helping to expedite solutions and propel our team towards victory! :rocket: 
+Greetings! This playbook contains a synopsis of the scenarios and functionality from the Hunting with Splunk blog series, as well as the Security Investigation Labs. Resources in this playbook can potentially be matched with challenges presented during the event, helping to expedite solutions and propel our team towards victory! :rocket: 
 ___
 
 ## Contents
@@ -138,6 +138,8 @@ The methods in this article continue to leverage URL Toolbox.
 
 ## Being Your Own Detective with SA-Investigator
 [link to blog post](https://www.splunk.com/en_us/blog/security/being-your-own-detective-with-sa-investigator.html/)
+
+
 
 # Security Investigation Online Experience
 
