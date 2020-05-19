@@ -28,7 +28,7 @@ Advantages of Splunk Stream:
 
 * Inspect suspicious domains in DNS to find high levels of Shannon entropy or potentially dissect the various aspects of the FQDN.
 * Monitor internal HTTP traffic. Rather than just your typical egress points of traffic coming from edge devices. 
-
+![alt text](images/calculating-shannon-entropy.png)
 ## Work(flow)ing Your OSINT
 [link to blog post](https://www.splunk.com/en_us/blog/security/work-flow-ing-your-osint.html/)
 
