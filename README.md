@@ -1,4 +1,4 @@
-![alt text](team-logo.png)
+![alt text](images/team-logo.png)
 
 ___
 Greetings! This playbook contains a synopsis of the scenarios and functionality from the Hunting with Splunk blog series, as well as the Security Investigation Labs. Resources in this playbook can potentially be matched with challenges presented during the event, helping to expedite solutions and propel our team towards victory! :rocket: 
@@ -139,7 +139,12 @@ The methods in this article continue to leverage URL Toolbox.
 ## Being Your Own Detective with SA-Investigator
 [link to blog post](https://www.splunk.com/en_us/blog/security/being-your-own-detective-with-sa-investigator.html/)
 
+Use SA-Investigator which is an add-on for Splunk Enterprise Security (ES)  
+   * Can be used wit Asset and Identity framework
+   * Can be used with Incident Management framework
+   * Even if an asset in your system, you can still search for artifacts
 
+![alt text](images/sa-investigator.png)
 
 # Security Investigation Online Experience
 
