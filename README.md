@@ -21,14 +21,14 @@ ___
 ## Finding Islands in the Stream (of Data)...
 [link to blog post](https://www.splunk.com/en_us/blog/security/finding-islands-in-the-stream-of-data.html/)
 
-Splunk Stream is a free application that is an extension of Splunk Enterprise.
+Splunk Stream is a free application that is an extension of Splunk Enterprise.  
 Advantages of Splunk Stream:
 1. Can see traffic over the wire from over 28 different protocols some of which include TCP, UDP, DNS, HTTP, and FTP.
 2. Let's say you just want to see FTP but not HTTP traffic; you can do that.
 3. Stream can parse PCAP files.
 
-* Inspect suspicious domains in DNS to find high levels of Shannon entropy or potentially dissect the various aspects of the FQDN.
 * Monitor internal HTTP traffic. Rather than just your typical egress points of traffic coming from edge devices.
+* Inspect suspicious domains in DNS to find high levels of Shannon entropy or potentially dissect the various aspects of the FQDN.
 
 ![alt text](images/calculating-shannon-entropy.png)
 
@@ -142,11 +142,31 @@ The methods in this article continue to leverage URL Toolbox.
 [link to blog post](https://www.splunk.com/en_us/blog/security/being-your-own-detective-with-sa-investigator.html/)
 
 Use SA-Investigator which is an add-on for Splunk Enterprise Security (ES)  
-   * Can be used wit Asset and Identity framework
-   * Can be used with Incident Management framework
-   * Even if an asset in your system, you can still search for artifacts
+   * Can be used wit Asset and Identity framework.
+   * Can be used with Incident Management framework.
+   * Even if an asset in your system, you can still search for artifacts.
 
 ![alt text](images/sa-investigator.png)
+
+## Hunting Your DNS Dragons
+[link to blog post](https://www.splunk.com/en_us/blog/security/hunting-your-dns-dragons.html/)
+
+* Using Splunk to detect and respond to DNS exfiltration. 
+* Can be used if you hypothesize that an adversary is using DNS to move files out of your organization or use it as a side channel for communications with malicious infrastructure.  
+
+If your hots are compromised, they might show characteristics such as:
+1. Increase in volume of requests by the host.
+2. Change in records such as TXT records from hosts that don't usually send them. 
+3. Substantial variance in the length of request (this can be caused by database generated algorithm names)
+4. Substitution of domains that are slightly altered from the original with typo squatting.  
+
+* Top 10 clients by volume of requests
+* Requests by Resource Record Over Time
+* Packet Size & Volume Distribution
+* Beaconing Activity to C&C infrastructure
+* Number of Hosts Talking to Beaconing Domains
+* Domains with Lots of Sub-Domains 
+
 
 # Security Investigation Online Experience
 
