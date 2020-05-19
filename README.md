@@ -1,4 +1,4 @@
-![alt text](images/team-logo.png)
+> ![alt text](images/team-logo.png)
 
 ___
 Greetings! This playbook contains a synopsis of the scenarios and functionality from the Hunting with Splunk blog series, as well as the Security Investigation Labs. Resources in this playbook can potentially be matched with challenges presented during the event, helping to expedite solutions and propel our team towards victory! :rocket: 
@@ -28,7 +28,9 @@ Advantages of Splunk Stream:
 
 * Inspect suspicious domains in DNS to find high levels of Shannon entropy or potentially dissect the various aspects of the FQDN.
 * Monitor internal HTTP traffic. Rather than just your typical egress points of traffic coming from edge devices. 
+
 ![alt text](images/calculating-shannon-entropy.png)
+
 ## Work(flow)ing Your OSINT
 [link to blog post](https://www.splunk.com/en_us/blog/security/work-flow-ing-your-osint.html/)
 
@@ -144,7 +146,7 @@ Use SA-Investigator which is an add-on for Splunk Enterprise Security (ES)
    * Can be used with Incident Management framework
    * Even if an asset in your system, you can still search for artifacts
 
-![alt text](images/sa-investigator.png)
+> ![alt text](images/sa-investigator.png)
 
 # Security Investigation Online Experience
 
