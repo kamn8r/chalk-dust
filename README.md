@@ -169,5 +169,3 @@ Exercise 3 - Scoping
 
 * Web Proxy Command Control Activity Analysis
 * Looking at data on a firewall, web proxy, or NetFlow contains records between all users and hosts. One example is leveraging web proxy traffic can help identify malicious activities on the network in addition to identifying Command and Control activities. 
-
-- [Back to top of page](#Contents)
