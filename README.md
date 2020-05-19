@@ -66,10 +66,9 @@ The article concludes showing a source IP address that was a chart topper for by
 ## This is NOT the Data You Are Looking For (OR is it)
 [link to blog post](https://www.splunk.com/en_us/blog/security/this-is-not-the-data-you-are-looking-for-or-is-it.html/)
 
-1. Use time ranges to narrow your results.
-2. Searching Splunk by using simple phrases and hitting enter is called super-grepping.
-3. Use field-value expressions to narrow searches.
-4. Things to consider leveraging when creating your SPL search are:
+1. Searching Splunk by using simple phrases and hitting enter is called super-grepping.
+2. Use field-value expressions to narrow searches.
+3. Things to consider leveraging when creating your SPL search are:
     * Field names - case sensitive 
     * Field values - case insensitive 
     * Wildcards - in field-value pairs
@@ -151,7 +150,9 @@ Use SA-Investigator which is an add-on for Splunk Enterprise Security (ES)
 
 # Security Investigation Online Experience
 
-## Splunk for Security Investigate: Threat Validation  
+## Splunk for Security Investigate: Threat Validation
+[link to lab](https://www.splunk.com/en_us/form/security-investigation-analyze-malicious-login-activity.html/)
+
 Exercise 1 - Detection  
 * Identify patterns of login failures across all systems.
 
@@ -167,6 +168,7 @@ Exercise 3 - Scoping
     * What actions were performed on the target system?  
 
 ## Security Endpoint Analysis with Splunk  
+[link to lab](https://www.splunk.com/en_us/form/security-investigation-online-experience-endpoint.html/)
 
 * Detecting process anomalies from MS Sysmon Events.
 * Searching for windows Office execution of unusual process.
@@ -176,6 +178,7 @@ Exercise 3 - Scoping
 * Malware tends to use long commands or wscript. By looking at the standard deviation of command lengths on a workstation then looking for command lengths that are 4 times that. You can identify uncharacteristly long commands that could be malicious. 
 
 ## Security Web Proxy Analysis with Splunk
+[link to lab](https://www.splunk.com/en_us/form/security-investigation-analyze-network-events.html/)
 
 * Web Proxy Command Control Activity Analysis
 * Looking at data on a firewall, web proxy, or NetFlow contains records between all users and hosts. One example is leveraging web proxy traffic can help identify malicious activities on the network in addition to identifying Command and Control activities. 
