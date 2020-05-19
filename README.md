@@ -1,7 +1,7 @@
 ![alt text](team-logo.png)
 
 ___
-Greetings! This playbook contains a synopsis of the scenarious and functionality from the Hunting with Splunk blog post series, as well as the Security Investigation Online Experience labs. Resources in this playbook can potentially be matched with challenges presented during the event, helping to expedite solutions and propel our team towards victory! 
+Greetings! This playbook contains a synopsis of the scenarious and functionality from the Hunting with Splunk blog post series, as well as the Security Investigation Online Experience labs. Resources in this playbook can potentially be matched with challenges presented during the event, helping to expedite solutions and propel our team towards victory! :rocket: 
 ___
 
 ## Contents
@@ -64,44 +64,47 @@ Windows event logs to focus in on:
 ## This is NOT the Data You Are Looking For (OR is it)
 [link to blog post](https://www.splunk.com/en_us/blog/security/this-is-not-the-data-you-are-looking-for-or-is-it.html/)
 
-1. use time ranges to narrow your results 
-2. searching Splunk by using simple phrases and hitting enter is called super-grepping
-3. Use field-value expressions to narrow searches
+1. Use time ranges to narrow your results.
+2. Searching Splunk by using simple phrases and hitting enter is called super-grepping.
+3. Use field-value expressions to narrow searches.
 4. Things to consider leveraging when creating your SPL search are:
+    * Field names - case sensitive 
+    * Field values - case insensitive 
+    * Wildcards - in field-value pairs
+    * Boolean operators - AND, OR, and NOT
+    * Comparison operators - <, >, <=, >=, and !=
 
-  * Field names - case sensitive 
-  * Field values - case insensitive 
-  * Wildcards - in field-value pairs
-  * Boolean operators - AND, OR, and NOT
-  * Comparison operators - <, >, <=, >=, and !=
-  * I need to write a good comparison between NOT and !=
+__"NOT" and "!=" Example:__
 
+`(index=web OR index=security) status!=200` Returns all events containing status where it is not equal to 200
+`(index=web OR index=security) NOT status=200` Returns all events that do not contain status=200
+ 
 ## Rex Groks Gibberish
 [link to blog post](https://www.splunk.com/blog/2017/08/30/rex-groks-gibberish.html/)
 
-Splunk provides rex and regex in SPL
-Provides an example of how to use regex to create fields on event. The example given is looking at passwords being sent in plain text over the network. 
-
-Another example provided is using regex to search for only specific cidr blocks.
+* Splunk provides rex and regex in SPL.
+* Use regex to create fields on event. 
+* Find passwords being sent in plain text over the network. 
+* Use regex to search for only specific cidr blocks.
 
 ## UT_parsing Domains Like House Slytherin
 [link to blog post](https://www.splunk.com/en_us/blog/security/ut-parsing-domains-like-house-slytherin.html/)
 
 According to this article URL Toolbox is one of three essential security Splunk apps.
-URL Toolbox is not a command. You use is via macros. Don't forget to use `ticks` to specify macros. 
+* URL Toolbox is not a command. 
+* You use is via macros. 
+* Don't forget to use `ticks` to specify macros. 
 
 The most popular macro in the URL toolbox is `ut_parse_extended(2)` which pasrses URL and passes the data to multiple fields. 
 
-URLParser is a faster way to parse URLs but is not a full replacement for URL Toolbox.
+URL Toolkit can be used to slice and dice URLs in events as many different ways as you want. It's said to be easier to use and powerful than regex when working with domains. 
 
-From what I can see the URL Toolkit can be used to slice and dice URLs in events as many different ways as you want. It's said to be easier to use and powerful than regex when working with domains. 
-
-For example, this URL:
-http://davidveuve.com/tech/how-i-do-summary-indexing-in-splunk/
-can turn into:
-ut_domain - davidveuve.com
-ut_domain_without_id - davidveuve
-AND MORE
+__Example:__
+this URL: `http://davidveuve.com/tech/how-i-do-summary-indexing-in-splunk/`
+can turn into: `field - value`
+* ut_domain - davidveuve.com
+* ut_domain_without_id - davidveuve
+* AND MORE
 
 ## You Can’t 'Hyde' from Dr. Levenshtein When You Use URL Toolbox
 [link to blog post](https://www.splunk.com/en_us/blog/tips-and-tricks/you-can-t-hyde-from-dr-levenshtein-when-you-use-url-toolbox.html/)
