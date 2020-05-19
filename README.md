@@ -1,4 +1,4 @@
-> ![alt text](images/team-logo.png)
+![alt text](images/team-logo.png)
 
 ___
 Greetings! This playbook contains a synopsis of the scenarios and functionality from the Hunting with Splunk blog series, as well as the Security Investigation Labs. Resources in this playbook can potentially be matched with challenges presented during the event, helping to expedite solutions and propel our team towards victory! :rocket: 
@@ -60,7 +60,7 @@ Windows event logs to focus in on:
 * Use the event stats command to see hosts that have 60 percent of their traffic going to a single destination. 
 * Use the streamstats command to create a visualization that shows for statistics to be generated as each event is seen. 
 
-> The article concludes showing a source IP address that was a chart topper for byes sent and received sending 77% of its traffic to a specific destination. 
+The article concludes showing a source IP address that was a chart topper for byes sent and received sending 77% of its traffic to a specific destination. 
 
 ## This is NOT the Data You Are Looking For (OR is it)
 [link to blog post](https://www.splunk.com/en_us/blog/security/this-is-not-the-data-you-are-looking-for-or-is-it.html/)
