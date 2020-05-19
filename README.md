@@ -1,7 +1,7 @@
 ![alt text](team-logo.png)
 
 ___
-Greetings! This playbook contains a synopsis of the scenarious and functionality from the Hunting with Splunk blog post series, as well as the Security Investigation Online Experience labs. Resources in this playbook can potentially be matched with challenges presented during the event, helping to expedite solutions and propel our team towards victory! 
+Greetings! This playbook contains a synopsis of the scenarios and functionality from the Hunting with Splunk blog series, as well as the Security Investigation Labs. Resources in this playbook can potentially be matched with challenges presented during the event, helping to expedite solutions and propel our team towards victory! :rocket: 
 ___
 
 ## Contents
@@ -14,7 +14,6 @@ ___
 ## Lookup Before You Go-Go...Hunting
 [link to blog post](https://www.splunk.com/en_us/blog/security/lookup-before-you-go-go-hunting.html/)
 
-* Create a lookup file. 
 * Find hosts on your network connecting to public DNS servers using a lookup file.
 * Leverage a lookup file to provide descriptions of windows event logs. 
 
@@ -64,65 +63,64 @@ Windows event logs to focus in on:
 ## This is NOT the Data You Are Looking For (OR is it)
 [link to blog post](https://www.splunk.com/en_us/blog/security/this-is-not-the-data-you-are-looking-for-or-is-it.html/)
 
-1. use time ranges to narrow your results 
-2. searching Splunk by using simple phrases and hitting enter is called super-grepping
-3. Use field-value expressions to narrow searches
+1. Use time ranges to narrow your results.
+2. Searching Splunk by using simple phrases and hitting enter is called super-grepping.
+3. Use field-value expressions to narrow searches.
 4. Things to consider leveraging when creating your SPL search are:
-	a. field names - case sensitive 
-	b. field values - case insensitive 
-	c. wildcards - in field-value pairs
-	d. Boolean operators - AND, OR, and NOT
-	e. comparison operators - <, >, <=, >=, and !=
-5. I need to write a good comparison between NOT and !=
+    * Field names - case sensitive 
+    * Field values - case insensitive 
+    * Wildcards - in field-value pairs
+    * Boolean operators - AND, OR, and NOT
+    * Comparison operators - <, >, <=, >=, and !=
 
+__"NOT" and "!=" Example:__  
+`(index=web OR index=security) status!=200` Returns all events containing status where it is not equal to 200
+`(index=web OR index=security) NOT status=200` Returns all events that do not contain status=200
+ 
 ## Rex Groks Gibberish
 [link to blog post](https://www.splunk.com/blog/2017/08/30/rex-groks-gibberish.html/)
 
-Splunk provides rex and regex in SPL
-Provides an example of how to use regex to create fields on event. The example given is looking at passwords being sent in plain text over the network. 
-
-Another example provided is using regex to search for only specific cidr blocks.
+* Splunk provides rex and regex in SPL.
+* Use regex to create fields on event. 
+* Find passwords being sent in plain text over the network. 
+* Use regex to search for only specific cidr blocks.
 
 ## UT_parsing Domains Like House Slytherin
 [link to blog post](https://www.splunk.com/en_us/blog/security/ut-parsing-domains-like-house-slytherin.html/)
 
 According to this article URL Toolbox is one of three essential security Splunk apps.
-URL Toolbox is not a command. You use is via macros. Don't forget to use `ticks` to specify macros. 
+* URL Toolbox is not a command. 
+* You use is via macros. 
+* Don't forget to use `ticks` to specify macros. 
 
 The most popular macro in the URL toolbox is `ut_parse_extended(2)` which pasrses URL and passes the data to multiple fields. 
 
-URLParser is a faster way to parse URLs but is not a full replacement for URL Toolbox.
+URL Toolkit can be used to slice and dice URLs in events as many different ways as you want. It's said to be easier to use and powerful than regex when working with domains. 
 
-From what I can see the URL Toolkit can be used to slice and dice URLs in events as many different ways as you want. It's said to be easier to use and powerful than regex when working with domains. 
-
-For example, this URL:
-http://davidveuve.com/tech/how-i-do-summary-indexing-in-splunk/
-can turn into:
-ut_domain - davidveuve.com
-ut_domain_without_id - davidveuve
+__Example:__   
+this URL `http://davidveuve.com/tech/how-i-do-summary-indexing-in-splunk/`  
+can turn into `field - value`  
+ut_domain - davidveuve.com  
+ut_domain_without_id - davidveuve  
 AND MORE
 
 ## You Can’t 'Hyde' from Dr. Levenshtein When You Use URL Toolbox
 [link to blog post](https://www.splunk.com/en_us/blog/tips-and-tricks/you-can-t-hyde-from-dr-levenshtein-when-you-use-url-toolbox.html/)
 
-The first example in this article uses the URL Toolbox to calculate the Levenshetein `ut_levenshtein(1)` difference of emails being received by your organization, hypothosizing that attackers are using domains that are very similar to your actual domain. 
+Use URL Toolbox to calculate the Levenshetein difference of emails being received by your organization, hypothosizing that attackers are using domains that are very similar to your actual domain. 
 
-The distance is the number of changes made to turn one string into another. If one string is Panda and the other is Pando, the distance would be 1 to change the a to an o.
+The Levenshetein distance is the number of changes made to turn one string into another. If one string is Panda and the other is Pando, the distance would be 1 to change the a to an o. Using this we can discover fraudulent emails where attackers make the email similar to the actual one.
 
-Using this we can discover fraudulent emails where attackers make the email similar to the actual one.
+Shannon Entropy allows us to calculate the amount of randomness that is present in a string. Leveraging this can allow you to search for algorithmically generated domain names, which are often used in malware. The example given hypothesizes that malware on the network is using randomized domain names to communication with other malicious infrastructure. 
 
-Shannon Entropy `ut_shannon(1)` allows us to calculate the amount of randomness that is present in a string. Leveraging this can allow you to search for algorithmically generated domain names. 
-
-The example given hypothesizes that malware on the network is using randomized domain names to communication with other malicious infrastructure. 
-
-Looking for domains with entropy of greater than 3 can be a starting point but you will need to adjust as needed to have low false positives.
+Looking for domains with entropy of greater than 3 can be a starting point, but you will need to adjust as needed to have low false positives.
 
 ## Do We Calculate, Appraise, Classify, Estimate? Yes, But We Do It All with...
 [link to blog post](https://www.splunk.com/en_us/blog/tips-and-tricks/do-we-calculate-appraise-classify-estimate-yes-but-we-do-it-all-with-evaluate-eval.html/)
 
-This provides an example where abnormally long process strings are of interest and you can use the eval command to identify them. In the example provided they use Microsoft Sysmon processes. 
+Use the eval command to identify abnormally long process strings such as ones in Microsoft Sysmon processes. Process strings that are several degrees of magnitude larger than the standard deviation of process strings on a system should be inspected as they could be running malware. 
 
-There is another example in which you are shown how to use eval to calculate how many days have passed since the command line string was executed on the system that created the process. 
+Use eval to calculate how many days have passed since a command line string was executed on the system that created the process. If a process string is abnormally long in comparison to what is typical on a machine AND it is long running, that can be signs of malware. 
 
 ## Tall Tales of Hunting with TLS/SSL Certificates
 [link to blog post](https://www.splunk.com/en_us/blog/security/tall-tales-of-hunting-with-tls-ssl-certificates.html/)
@@ -132,7 +130,7 @@ Leverage SSL certification information to find intrusion on your network. What i
 ## Finding NEW Evil: Detecting New Domains with Splunk
 [link to blog post](https://www.splunk.com/en_us/blog/security/finding-new-evil-detecting-new-domains-with-splunk.html/)
 
-This articles takes a stance that typically users are creatures of habit and will visit the same roughly 20 sites per day and that visits to entirely new sites could be suspicious or potentially malicious. Malicious domains can leverage dynamic domains, which are subdomains created to be more legitimate-looking and human readable. 
+Users are creatures of habit and will typically visit the same roughly 20 sites per day and that visits to entirely new sites could be suspicious or potentially malicious. Malicious domains can leverage dynamic domains, which are subdomains created to be more legitimate-looking and human readable. 
 
 Sources of network traffic mentioned in this article are web proxy logs and DNS data. 
 
@@ -142,32 +140,34 @@ The methods in this article continue to leverage URL Toolbox.
 [link to blog post](https://www.splunk.com/en_us/blog/security/being-your-own-detective-with-sa-investigator.html/)
 
 
+
 # Security Investigation Online Experience
 
-## Splunk for Security Investigate: Threat Validation
-SECURITY INVESTIGATION WITH SPLUNK: Exercise 1, Detection
-Identify patterns of login failures across all systems
+## Splunk for Security Investigate: Threat Validation  
+Exercise 1 - Detection  
+* Identify patterns of login failures across all systems.
 
-Exercise 2, Validation
-Brute force activity to random web hosts from internal host that has been infected by malware. 
-Isolate password failures to a single host and examine all activity from workstation. Then visualize attempts of failed login attempts to better get an idea as to what the bad actor was doing. 
+Exercise 2 - Validation    
+* Brute force activity to random web hosts from internal host that has been infected by malware. 
+* Isolate password failures to a single host and examine all activity from workstation. Then visualize attempts of failed login attempts to better get an idea as to what the bad actor was doing. 
 
-Exercise 3, Scoping
-After identifying the internal workstation responsible for the attempted login activity, you must identity the scope and effect of the activities taken by the compromised workstation. 
-Identify the following:
-Were any of the access attempts successful
-What user account and privileges were used
-What actions were performed on the target system?
+Exercise 3 - Scoping  
+* After identifying the internal workstation responsible for the attempted login activity, you must identity the scope and effect of the activities taken by the compromised workstation. 
+* Identify the following:  
+    * Were any of the access attempts successful  
+    * What user account and privileges were used  
+    * What actions were performed on the target system?  
 
-## Security Endpoint Analysis with Splunk
-Detecting process anomalies from MS Sysmon Events
-searching for windows Office execution of unusual process
-Detecting encryption activities by ransomware binaries
-Prevention via action between infection and encryption
-By analyzing average process command line length by looking at sysmon events that contain endpoint activities.
-Malware tends to use long commands or wscript. By looking at the standard deviation of command lengths on a workstation then looking for command lengths that are 4 times that. You can identify uncharacteristly long commands that could be malicious. 
+## Security Endpoint Analysis with Splunk  
+
+* Detecting process anomalies from MS Sysmon Events.
+* Searching for windows Office execution of unusual process.
+* Detecting encryption activities by ransomware binaries.
+* Prevention via action between infection and encryption.
+* By analyzing average process command line length by looking at sysmon events that contain endpoint activities.
+* Malware tends to use long commands or wscript. By looking at the standard deviation of command lengths on a workstation then looking for command lengths that are 4 times that. You can identify uncharacteristly long commands that could be malicious. 
 
 ## Security Web Proxy Analysis with Splunk
-Web Proxy Command Control Activity Analysis
-Looking at data on a firewall, web proxy, or NetFlow contains records between all users and hosts. One example is leveraging web proxy traffic can help identify malicious activities on the network in addition to identifying Command and Control activities. 
 
+* Web Proxy Command Control Activity Analysis
+* Looking at data on a firewall, web proxy, or NetFlow contains records between all users and hosts. One example is leveraging web proxy traffic can help identify malicious activities on the network in addition to identifying Command and Control activities. 
