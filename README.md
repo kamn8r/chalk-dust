@@ -1,3 +1,4 @@
+
 ![alt text](images/team-logo.png)
 
 ___
@@ -27,7 +28,7 @@ Advantages of Splunk Stream:
 3. Stream can parse PCAP files.
 
 * Inspect suspicious domains in DNS to find high levels of Shannon entropy or potentially dissect the various aspects of the FQDN.
-* Monitor internal HTTP traffic. Rather than just your typical egress points of traffic coming from edge devices. 
+* Monitor internal HTTP traffic. Rather than just your typical egress points of traffic coming from edge devices.
 
 ![alt text](images/calculating-shannon-entropy.png)
 
@@ -146,7 +147,7 @@ Use SA-Investigator which is an add-on for Splunk Enterprise Security (ES)
    * Can be used with Incident Management framework
    * Even if an asset in your system, you can still search for artifacts
 
-> ![alt text](images/sa-investigator.png)
+![alt text](images/sa-investigator.png)
 
 # Security Investigation Online Experience
 
